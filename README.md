@@ -17,25 +17,25 @@ A Claude skill that acts as a **senior engineer co-pilot** — automatically sen
 
 ## Install
 
-### Claude.ai users
-1. Download `engineer-compass.skill` from the [Releases](../../releases) page
-2. Go to **Settings → Skills → Install from file**
-3. Upload the file — done
-
-### Developers (system prompt / agent projects)
-Clone or copy the folder into your project:
-
-```
-your-project/
-└── .claude/
-    └── skills/
-        └── engineer-compass/
-            ├── SKILL.md
-            └── references/
-                └── principles.md
+### Option A — Claude Code Plugin (global)
+Available across all your projects:
+```bash
+/plugin marketplace add safwan027/engineer-compass
+/plugin install engineer-compass@engineer-compass
 ```
 
-Then reference `SKILL.md` in your Claude system prompt or agent context.
+### Option B — CLAUDE.md per-project
+
+**New project:**
+```bash
+curl -o CLAUDE.md https://raw.githubusercontent.com/safwan027/engineer-compass/main/CLAUDE.md
+```
+
+**Existing project (append):**
+```bash
+echo "" >> CLAUDE.md
+curl https://raw.githubusercontent.com/safwan027/engineer-compass/main/CLAUDE.md >> CLAUDE.md
+```
 
 ---
 
@@ -43,7 +43,7 @@ Then reference `SKILL.md` in your Claude system prompt or agent context.
 
 | File | Purpose |
 |---|---|
-| `SKILL.md` | Core skill — behaviors, triggers, artifact format |
+| `CLAUDE.md` | Core skill — behaviors, triggers, artifact format |
 | `references/principles.md` | ~30 software engineering principles with anchors for fast recall |
 
 ---
